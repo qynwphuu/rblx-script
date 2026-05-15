@@ -11,7 +11,7 @@ local func = function()
 	local subtraction = 5 - 2
 	local multiplication = 5 * 2
 	local division = 5 / 2
-	local floordiv = math.floor(5 / 2) -- only ver 5.3 supports 5 // 3
+	local floordiv = math.floor(5 / 2) -- only ver 5.3 supports 5 // 2
 	local modulusdiv = 5 % 2
 	local exponentiation = 5 ^ 2
 	local doublenegation = -(-5)
@@ -48,7 +48,7 @@ local func = function()
 	local boolCheck = 5 > 3 -- can use == => >= < > to compare numbers and strings
 	local boolCheckNotEqual = 7 ~= 8 -- not equal, ~= == can compare all data types
 	-- local strVarCheck = ("hi" ~= "sup")
-	-- local funcCheck = function() end ~= function end
+	-- local funcCheck = function() end ~= function() end
 
 	print(boolVariableTrue)
 	print(boolVariableFalse)
@@ -58,6 +58,15 @@ local func = function()
 	print(not false) -- prints true
 
 	-- if statements
+	if 9 > 7 then
+		print("this is true")
+	else
+		print("this is false")
+	end
+
+	if 2 > 1 and 3 > 2 then -- same as AND in SQL
+		print("that's true") -- will print if BOTH are true
+	end
 end
 
 func()
