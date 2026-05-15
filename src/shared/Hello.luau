@@ -36,6 +36,20 @@ local func = function()
 	print(myThirdString)
 	print(concatenatedString)
 	print(string.sub(myString, 1, 5)) -- prints Hello
+
+	-- nil, represents an absence of a value
+	local variable = nil
+	-- or local variable
+	print(variable) -- prints nil
+
+	-- boolean
+	local boolVariableTrue = true
+	local boolVariableFalse = false
+	local boolCheck = 5 > 3
+
+	print(boolVariableTrue)
+	print(boolVariableFalse)
+	print(boolCheck)
 end
 
 func()
