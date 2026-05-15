@@ -79,6 +79,26 @@ local func = function()
 	local num1, num2 = functionName() -- asign 10, 15 to num1, num2
 	print(num1)
 	print(num2)
+
+	-- tables
+	local ourTable = {
+		12,
+		"Text",
+		function()
+			print("sup")
+		end,
+	}
+	table.insert(ourTable, 20)
+	table.insert(ourTable, "last item")
+	ourTable[#ourTable] = nil -- delete the last item
+
+	ourTable[3]()
+	print(ourTable[4])
+	print(#ourTable) -- prints 4
+
+	ourTable["Unique Key"] = "New Item" -- the indexes 1 2 3 4 are called the key
+	ourTable.UniqueKey = "New Item" -- create a new index called UniqueKey
+	print(ourTable["Unique Key"])
 end
 
 func()
