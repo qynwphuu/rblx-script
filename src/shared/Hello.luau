@@ -46,12 +46,18 @@ local func = function()
 	local boolVariableTrue = true
 	local boolVariableFalse = false
 	local boolCheck = 5 > 3 -- can use == => >= < > to compare numbers and strings
-	local boolCheckNotEqual = 7 ~= 8 -- not equal
+	local boolCheckNotEqual = 7 ~= 8 -- not equal, ~= == can compare all data types
+	-- local strVarCheck = ("hi" ~= "sup")
+	-- local funcCheck = function() end ~= function end
 
 	print(boolVariableTrue)
 	print(boolVariableFalse)
 	print(boolCheck)
 	print(boolCheckNotEqual)
+	print(not true) -- prints false
+	print(not false) -- prints true
+
+	-- if statements
 end
 
 func()
