@@ -156,6 +156,102 @@ local func = function()
 		end
 	end
 	printNumbers(data)
+
+	-- threads (coroutine)
+	local co1 = coroutine.create(function()
+		print("Hello World!")
+	end) -- coroutine has a special attribute called status
+
+	print(coroutine.status(co1)) -- suspended
+	coroutine.resume(co1) -- prints Hello World!
+	print(coroutine.status(co1)) -- dead
+	coroutine.resume(co1) -- can't run, it only runs ONCE, because its dead
+
+	local co2 = coroutine.create(function()
+		print("1")
+		coroutine.yield() -- yield create an increment of checkpoint
+		print("2")
+		coroutine.yield()
+		print("3")
+	end)
+
+	coroutine.resume(co2)
+	coroutine.resume(co2)
+	coroutine.resume(co2)
+
+	-- coroutine has 4 statuses
+	-- suspended (hasn't started yet or paused)
+	-- running (running right now)
+	-- normal (coroutine is resuming another coroutine)
+	-- dead
+
+	local co4
+	co4 = coroutine.create(function()
+		print(coroutine.status(co4))
+	end)
+	coroutine.resume(co4) -- prints running
+
+	-- normal
+	local co5
+	local co6
+
+	co5 = coroutine.create(function()
+		print("co5 running")
+		print("co6 status: " .. coroutine.status(co6))
+	end)
+
+	co6 = coroutine.create(function()
+		print("co6 running")
+		coroutine.resume(co5)
+	end)
+
+	coroutine.resume(co6) -- runs co6
+	-- then co6 prints and run co5
+	-- co5 prints and show co6 status (normal)
+
+	local wrap = coroutine.wrap(function()
+		print("Hello World!")
+	end)
+	wrap() -- similar to coroutine.create but wrap can be called as a function
+
+	--[[ 
+	-- theres another way to make threads by task.spawn
+	-- task.spawn wait everything else do first before it
+	task.spawn(function()
+		print("Hello World!")
+	end) 
+
+	print("Hi") -- runs first prints Hi Hello World!
+
+	-- task.defer
+	print("A")
+
+	task.defer(function() -- defer put B on a waiting list then prints after everything is done
+		print("B")
+	end)
+
+	print("C")
+
+	task.defer(function() -- put D on next waiting list
+		print("D") -- prints A C B D
+	end)
+
+	-- task.delay
+	task.delay(3, function() -- waits 3 seconds to print
+		print("Hello World!")
+	end)
+
+	-- task.cancel
+
+	-- coroutine.running
+	local co = coroutine.running()
+
+	if co then
+		task.cancel(co)
+	end ]]
+
+	-- Userdata is a Custom Predefined Data Type
+	-- includes Vector3, CFrame, BrickColor, Color3
 end
 
 func()
