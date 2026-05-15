@@ -2,7 +2,7 @@ local func = function()
 	print("Hello, world!")
 
 	print("Lua script learning")
-	print("local is another way of private")
+	print("'local' is another way of 'private'")
 	print("Lua has 8 Basic Data Types")
 	print("Number, String, nil, Boolean, Table, Function, Threads, Userdata")
 
