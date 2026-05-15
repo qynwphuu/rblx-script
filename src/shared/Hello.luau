@@ -97,8 +97,65 @@ local func = function()
 	print(#ourTable) -- prints 4
 
 	ourTable["Unique Key"] = "New Item" -- the indexes 1 2 3 4 are called the key
-	ourTable.UniqueKey = "New Item" -- create a new index called UniqueKey
+	ourTable.UniqueKey = "New Item" -- create a new index called UniqueKey which has New Item
 	print(ourTable["Unique Key"])
+
+	-- loops
+	-- for loops start from 1 end to 10, step count is 1
+	for i = 1, 10, 1 do
+		print("Loop! " .. i)
+	end
+	for i = -1, -10, -1 do
+		print(i) -- -1 -2 -3 -4 .. -10
+	end
+	for i = 5, -5, -2 do
+		print(i) -- 5 3 1 -1 .. -5
+	end
+
+	local ourTableLoop = {
+		"String",
+		7,
+		false,
+	}
+
+	for i, item in ipairs(ourTableLoop) do
+		print(item)
+	end
+
+	-- while loops
+	local count = 1
+	while count < 5 do -- condition is check at the START of each iteration
+		print(count)
+		count = count + 1
+	end
+
+	-- repeat loops
+	local count1 = 1
+	repeat -- condition is check at the END of each iteration
+		print("Sup " .. count1)
+		count1 = count1 + 1 -- 2 > 5 keep run, 3 > 5 run, 4 > 5, 5 > 5, 6 > 5 stop
+	until count1 > 5 -- keep looping until its CORRECT
+
+	-- recursion
+	local function countdown(n)
+		print(n) -- 8
+		if n > 1 then
+			countdown(n - 1) -- 7
+		end
+	end
+	countdown(8)
+
+	local data = { 1, 2, { 3, 4, { 5, 6 } }, 7 }
+	local function printNumbers(value)
+		if type(value) == "table" then -- can use typeof
+			for i, item in ipairs(value) do
+				printNumbers(item)
+			end
+		else
+			print(value)
+		end
+	end
+	printNumbers(data)
 end
 
 func()
