@@ -250,7 +250,7 @@ local func = function()
 		task.cancel(co)
 	end ]]
 
-	-- Userdata is a Custom Predefined Data Type
+	-- Userdata is a Custom Predefined Data Type that the engine/game create
 	-- includes Vector3, CFrame, BrickColor, Color3
 end
 
