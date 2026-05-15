@@ -67,6 +67,18 @@ local func = function()
 	if 2 > 1 and 3 > 2 then -- same as AND in SQL
 		print("that's true") -- will print if BOTH are true
 	end
+
+	-- function
+	local function functionName()
+		print("you're here")
+		local value1, value2 = 10, 15
+
+		return value1, value2 -- stops here
+	end
+
+	local num1, num2 = functionName() -- asign 10, 15 to num1, num2
+	print(num1)
+	print(num2)
 end
 
 func()
